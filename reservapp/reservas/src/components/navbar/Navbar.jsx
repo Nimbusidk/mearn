@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom"
 import "./navbar.css"
 
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navContainer">
-        <span className="logo">lamabooking</span>
+        <Link to="/">
+        <span className="logo" style={{color:"white",textDecoration:"none"}}>RESERVAS ONLINE</span>
+        </Link>
         <div className="navItems">
-          <button className="navButton">Register</button>
-          <button className="navButton">Login</button>
+          <Link to="/register" className="navButton">Registro</Link>
+          <Link to="/login" className="navButton">Acceder</Link>
         </div>
       </div>
     </div>

@@ -3,30 +3,30 @@ import { deleteUser, getUser, getUsers, updateUser } from "../controllers/user.j
 import { verifyAdmin, verifyToken, verifyUser } from "../utils/verifyToken.js";
 
 const router = express.Router();
-
-router.get("/prueba",verifyToken,(req,res,next) =>{
+/*
+router.get("/prueba",verifyToken,(req, res, next) => {
     res.send("Hola estoy autenticado!")
 })
 
-router.get("/prueba/:id",verifyUser,(req,res,next) =>{
-    res.send("Hola estoy autenticado y puedo eliminar!")
+router.get("/prueba/:id",verifyUser,(req, res, next) => {
+    res.send("Hola estoy autenticado Y puedo eliminar!")
 })
 
-router.get("/admin/:id",verifyAdmin,(req,res,next) =>{
-    res.send("Hola estoy autenticado y puede hacer todas las acciones")
+router.get("/admin/:id",verifyAdmin,(req, res, next) => {
+    res.send("Hola ADMIN estoy autenticando Y puede hacer todas las acciones!")
 })
+*/
 
-//update
-router.put("/:id", verifyUser,updateUser);
+//UPDATE 
+router.put("/:id", verifyUser, updateUser)
 
-//delete
-router.delete("/:id",verifyUser, deleteUser)
+//DELETE
+router.delete("/:id", verifyUser,deleteUser)
 
-//get
+//GET
 router.get("/:id", verifyUser, getUser)
 
-//get all
-router.get("/", verifyUser, getUsers)
+//GET ALL
+router.get("/", verifyAdmin, getUsers)
 
-
-export default router; 
+export default router;
